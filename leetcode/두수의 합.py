@@ -2,9 +2,7 @@ from typing import List
 
 class Solution:
     def twoSum(self, nums: List[int], target: int) -> List[int]:
-        num_dic = dict()
-        for i, v in enumerate(nums): num_dic[v] = i
-
-        for i, v in enumerate(nums):
-            if target - v in num_dic and i != num_dic[target - v]:
-                return [i, num_dic[target-v]]
+        num_dict = dict()
+        for i, num in enumerate(nums): num_dict[num] = i
+        for i, num in enumerate(nums):
+            if target - num in num_dict and i != num_dict[target-num]: return [i, num_dict[target-num]]

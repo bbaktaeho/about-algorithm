@@ -3,10 +3,11 @@ import collections
 
 class Solution:
     def groupAnagrams(self, strs: List[str]) -> List[List[str]]:
-        dic = collections.defaultdict(list)
-        for str in strs:
-            dic["".join(sorted(str))].append(str)
-        return list(dic.values())
+        word_dict = collections.defaultdict(list)
+        for str in strs: word_dict["".join(sorted(str))].append(str)
+        anagrams = word_dict.values()
+        return [sorted(result) for result in anagrams]
 
 s = Solution()
-s.groupAnagrams(["eat","tea","tan","ate","nat","bat"])
+result = s.groupAnagrams(["eat","tea","tan","ate","nat","bat"])
+print(result)
