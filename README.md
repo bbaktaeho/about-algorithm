@@ -1,4 +1,10 @@
-## 그냥 헤더임
+## 풀이
+
+- 백준
+- 프로그래머스
+- leetcode
+
+## 기록
 
 [내 기록](https://www.notion.so/bbaktaeho/CodingTest-Study-0096329e66aa49ff9aac4b435b585174)
 
