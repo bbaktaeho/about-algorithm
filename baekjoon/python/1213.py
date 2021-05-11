@@ -1,18 +1,28 @@
+# 모든 알파벳이 짝수일 때 팰린드롬
+# 두 개 이상의 알파벳이 홀수일 때 X
+import sys; input = sys.stdin.readline
 import collections
 
-name = input()
+name = input().rstrip()
+name_dic = collections.Counter(name)
 name_len = len(name)
-name_set_len = len(set(name))
-counter_dict = collections.Counter(name)
-l = counter_dict.most_common(name_set_len)
 
-result = ""
+odd = 0
+for count in name_dic.values():
+    if count % 2 != 0: odd += 1
 
-if name_len % 2 == 0 and name_len // 2 == name_set_len: 
-    for c in sorted(l, key=lambda x: x[0][0]): result += c[0][0]
-    print(result + result[::-1])
-elif name_len % 2 == 1 and name_len // 2 + 1 == name_set_len and l[0][1] <= 2: 
-    for c in sorted(l, key=lambda x: x[0][0]): result += c[0][0]
-    print(result + result[::-1][1:])
-else: print("I'm Sorry Hansoo")
-
+if odd >= 2: print("I'm Sorry Hansoo")
+else:
+    result = ""
+    front = ""
+    for c, count in name_dic.items():
+        if count % 2 != 0:
+            if count == 1:
+                result = c * count
+                name_dic.pop(c)
+                break
+            else:
+                result = c
+                break
+    for c in sorted(name_dic): front += c * (name_dic[c] // 2)
+    print(front + result + front[::-1])
