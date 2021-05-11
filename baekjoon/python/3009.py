@@ -1,25 +1,8 @@
-# X = []
-# Y = []
-# for _ in range(3):
-#     x, y = map(int, input().split())
-#     X.append(x)
-#     Y.append(y)
-# pointX = ""
-# pointY = ""
-# for i in range(3):
-#     if X.count(X[i]) == 1: pointX = str(X[i])
-#     if Y.count(Y[i]) == 1: pointY = str(Y[i])
-# print(pointX + " " + pointY)
-
-import sys
-input = sys.stdin.readline
-
-X = []
-Y = []
+x_arr, y_arr = [], []
 for _ in range(3):
     x, y = map(int, input().split())
-    if x in X: X.remove(x)
-    else: X.append(x)
-    if y in Y: Y.remove(y)
-    else: Y.append(y)
-print(*X, *Y)
+    if x in x_arr: x_arr.remove(x)
+    else: x_arr.append(x)
+    if y in y_arr: y_arr.remove(y)
+    else: y_arr.append(y)
+print(x_arr[0], y_arr[0])

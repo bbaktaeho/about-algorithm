@@ -5,3 +5,5 @@ for _ in range(3):
     elif a == 2: print("B")
     elif a == 1: print("C")
     elif a == 0: print("D")
+
+    
