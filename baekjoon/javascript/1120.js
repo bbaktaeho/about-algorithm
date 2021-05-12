@@ -15,8 +15,8 @@ rl.on("line", line => {
   let diff = aLen;
   for (let i = 0; i < subLen + 1; i++) {
     let tempDiff = 0;
-    for (let j=0; j < aLen; j++) if (A[j] !== B[i+j]) tempDiff++;
-    diff = Math.min(diff, tempDiff)
+    for (let j = 0; j < aLen; j++) if (A[j] !== B[i + j]) tempDiff++;
+    diff = Math.min(diff, tempDiff);
   }
   console.log(diff);
 });
