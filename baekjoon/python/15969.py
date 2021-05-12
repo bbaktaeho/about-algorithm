@@ -1,3 +1,5 @@
+# 행복감과 학생들의 성적 차이 관계
+
 input()
-arr = list(map(int, input().split()))
-print(max(arr) - min(arr))
+result = sorted(map(int, input().split()))
+print(result[-1] - result[0])
