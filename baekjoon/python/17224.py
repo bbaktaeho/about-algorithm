@@ -20,18 +20,32 @@
 #             break
 
 # print(total)
+
+
+# N, L, K = map(int, input().split())
+# quizList = []
+# for _ in range(N): quizList.append(tuple(map(int, input().split())))
+# quizList.sort(key=lambda x: x[1])
+# totalScore = 0
+# for quiz in quizList:
+#     if K == 0: break
+#     if quiz[0] > L: continue
+#     if quiz[1] <= L: 
+#         K -= 1
+#         totalScore += 140
+#     elif quiz[0] <= L:
+#         K -= 1
+#         totalScore += 100
+# print(totalScore)
+
+
 N, L, K = map(int, input().split())
-quizList = []
-for _ in range(N): quizList.append(tuple(map(int, input().split())))
-quizList.sort(key=lambda x: x[1])
-totalScore = 0
-for quiz in quizList:
+quiz_list = [tuple(map(int, input().split())) for _ in range(N)]
+quiz_list.sort(key=lambda x: x[1])
+
+result = 0
+for easy, hard in quiz_list:
     if K == 0: break
-    if quiz[0] > L: continue
-    if quiz[1] <= L: 
-        K -= 1
-        totalScore += 140
-    elif quiz[0] <= L:
-        K -= 1
-        totalScore += 100
-print(totalScore)
+    if hard <= L: result += 140; K -= 1
+    elif easy <= L: result += 100; K -= 1
+print(result) 

@@ -1,3 +1,4 @@
+# 1
 # N, arr1, M, arr2 = (int(input()), input().split(), int(input()), input().split())
 # arr1 = set(arr1)
 
@@ -26,19 +27,41 @@
 # f_arr = list(map(int, input().split()))
 # for f in f_arr: print(bs(f, N))
 
-import sys; input = sys.stdin.readline
-N = int(input())
-N_arr = sorted(map(int, input().split()))
-M = int(input())
-M_arr = list(map(int, input().split()))
+# 2
+# import sys; input = sys.stdin.readline
+# N = int(input())
+# N_arr = sorted(map(int, input().split()))
+# M = int(input())
+# M_arr = list(map(int, input().split()))
 
-def bs(num):
+# def bs(num):
+#     start, end = 0, N-1
+#     while start <= end:
+#         mid = (start + end) // 2
+#         if num == N_arr[mid]: return 1
+#         elif num < N_arr[mid]: end = mid - 1
+#         else: start = mid + 1
+#     return 0
+
+# for m in M_arr: print(bs(m))
+
+N = int(input())
+n_arr = sorted((map(int, input().split())))
+M = int(input())
+m_arr = map(int, input().split())
+
+result = []
+
+for m in m_arr:
     start, end = 0, N-1
+    result_len = len(result)
     while start <= end:
         mid = (start + end) // 2
-        if num == N_arr[mid]: return 1
-        elif num < N_arr[mid]: end = mid - 1
-        else: start = mid + 1
-    return 0
+        if n_arr[mid] == m: 
+            result.append(1)
+            break
+        elif n_arr[mid] < m: start = mid+1
+        else: end = mid-1
+    if result_len == len(result): result.append(0)
 
-for m in M_arr: print(bs(m))
+print(*result, sep='\n')

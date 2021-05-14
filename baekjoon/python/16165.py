@@ -16,21 +16,40 @@
 #             print(i)
 #     M -= 1
 
+# N, M = map(int, input().split())
+
+# teamMem, memTeam = {}, {}
+# for _ in range(N):
+#     teamName, memNum = input(), int(input())
+#     teamMem[teamName] = []
+#     for _ in range(memNum):
+#         name = input()
+#         teamMem[teamName].append(name)
+#         memTeam[name] = teamName
+
+# for i in range(M):
+#     quiz, check = input(), int(input())
+#     if check:
+#         print(memTeam[quiz])
+#     else:
+#         for mem in sorted(teamMem[quiz]):
+#             print(mem)
+
+import sys; input = sys.stdin.readline
 N, M = map(int, input().split())
 
-teamMem, memTeam = {}, {}
-for _ in range(N):
-    teamName, memNum = input(), int(input())
-    teamMem[teamName] = []
-    for _ in range(memNum):
-        name = input()
-        teamMem[teamName].append(name)
-        memTeam[name] = teamName
+team_list = {}
+member_list = {}
 
-for i in range(M):
-    quiz, check = input(), int(input())
-    if check:
-        print(memTeam[quiz])
-    else:
-        for mem in sorted(teamMem[quiz]):
-            print(mem)
+for _ in range(N):
+    team_n = input().rstrip()
+    team_p = int(input())
+    team = [input().rstrip() for _ in range(team_p)]
+    for member in team: member_list[member] = team_n
+    team_list[team_n] = team
+    
+for _ in range(M):
+    quiz = input().rstrip()
+    is_member = int(input())
+    if is_member: print(member_list[quiz])
+    else: print("\n".join(sorted(team_list[quiz])))
