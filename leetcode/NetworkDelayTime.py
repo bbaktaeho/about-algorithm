@@ -6,7 +6,7 @@ class Solution:
     def networkDelayTime(self, times: List[List[int]], n: int, k: int) -> int:
         # step1: 그래프 초기화
         graph = collections.defaultdict(list)
-        for u, v, w in times: graph[u].append((v, w))
+        for u, v, w in times: graph[u].append((v, w)) # 노드, 갈수있는노드, 가중치
 
         # step2: bfs
         visited = set()
