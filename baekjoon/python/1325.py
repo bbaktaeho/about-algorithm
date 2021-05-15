@@ -49,13 +49,29 @@
 
 def dfs(c):
     global hack_count
-    if visited[c]: return
-    visited[c] = True
     hack_count += 1
     for next_c in trust[c]:
-        if not visited[next_c]: dfs(next_c)
+        if not visited[next_c]: 
+            visited[next_c] = True
+            dfs(next_c)
 
-import sys; sys.setrecursionlimit(10000); input = sys.stdin.readline
+def bfs(c):
+    visited = [False] * (N+1)
+    hack_count = 0
+    q = deque([c])
+    visited[c] = True
+    while q:
+        cur = q.popleft()
+        hack_count += 1
+        for next_c in trust[cur]:
+            if not visited[next_c]: 
+                q.append(next_c)
+                visited[next_c] = True
+    return hack_count
+
+import sys; sys.setrecursionlimit(100000)
+from collections import deque
+input = sys.stdin.readline
 
 N, M = map(int, input().split())
 trust = [[] for _ in range(N+1)]
@@ -66,9 +82,10 @@ for _ in range(M):
 
 max_count = 0
 for i in range(1, N+1):
-    hack_count = 0
-    visited = [False] * (N+1)
-    dfs(i)
+    # hack_count = 0
+    # visited = [False] * (N+1)
+    # dfs(i)
+    hack_count = bfs(i)
     if max_count == hack_count: result.append(i)
     elif hack_count > max_count: 
         result = [i]
