@@ -18,19 +18,35 @@
 # print(bfs())
 
 
+# from collections import deque
+# N, K = map(int, input().split())
+
+# sec_list = [0] * 100001
+
+# def bfs():
+#     q = deque([N])
+#     while q:
+#         cur = q.popleft()
+#         if cur == K: return sec_list[cur] # 초 리턴
+#         for move in (cur-1, cur+1, cur*2): 
+#             if 0 <= move < 100001 and sec_list[move] == 0:
+#                 q.append(move)
+#                 sec_list[move] = sec_list[cur] + 1
+
+# print(bfs())
+
 from collections import deque
 N, K = map(int, input().split())
-
-sec_list = [0] * 100001
+second_list = [0] * 100001
 
 def bfs():
     q = deque([N])
     while q:
         cur = q.popleft()
-        if cur == K: return sec_list[cur] # 초 리턴
-        for move in (cur-1, cur+1, cur*2): 
-            if 0 <= move < 100001 and sec_list[move] == 0:
-                q.append(move)
-                sec_list[move] = sec_list[cur] + 1
+        if cur == K: return second_list[cur]
+        for next in (cur-1, cur+1, cur*2):
+            if 0 <= next < 100001 and second_list[next] == 0: 
+                q.append(next)
+                second_list[next] = second_list[cur] + 1
 
 print(bfs())

@@ -1,39 +1,23 @@
-from collections import deque
+bracket = input()
+stack = []
+result = 0
 
-bracket_dict = {
-    "]": ("[", 3),
-    ")": ("(", 2)
+dic = {
+    "(": ")",
+    "[": "]"
 }
 
-stack = []
-data = input();
-calc_list = []
-result = []
-check = 0 # 연속 닫힘 체크
-for bracket in data:
-    if bracket in ('(', '['): 
-        stack.append(bracket)
-        check = 0
+# 올바른 괄호열인지 판단
+for b in bracket:
+    if b in ("(", "["): stack.append(b)
     else:
-        check += 1
-        if not stack: 
-            result = []
-            break
-        b_pop = stack.pop()
-        couple = bracket_dict[bracket]
-        if couple[0] == b_pop: 
-            if check >= 2:
-                if not stack: 
-                    result.append(sum(calc_list) * couple[1])
-                    calc_list = []
-                else: calc_list.append(calc_list.pop() * couple[1])
-            else: 
-                calc_list.append(couple[1])
-                if not stack: result.append(calc_list.pop())
-        else:
-            result = []
-            break
+        if not stack or (dic[stack.pop()] != b): 
+            print(0); exit(0)
 
-print(sum(result) if result and not stack else 0)
-
-# 40프로에서 틀림
+stack = []
+for b in bracket:
+    print(stack)
+    if stack and not stack[-1].isdigit():
+        stack.append("2" if stack.pop() + b == "()" else "3")
+    stack.append(b)
+print(stack)
