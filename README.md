@@ -73,3 +73,13 @@
   # javascript
   숫자.toFixed(2)
   ```
+
+- 리스트 펼치기
+
+  ```python
+  # python
+  print(*[1,2,3,4])
+
+  # javascript
+  console.log(...[1,2,3,4])
+  ```
