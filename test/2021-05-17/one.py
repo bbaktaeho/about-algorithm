@@ -2,7 +2,6 @@ def solution(paths):
     result = [] # 결과 리스트
     step_list = [paths[0][0]] # 직선 단계별 리스트
     next_step = paths[0][1] # 직선의 다음 수
-    is_asc = paths[0][0] < paths[0][1] # 증가 또는 감소하는 직선인지 확인
 
     for i in range(1, len(paths)): # 두 번째 직선부터 시작
         if next_step != paths[i][0]:
@@ -15,9 +14,7 @@ def solution(paths):
     result.append(step_list)
 
     ans = set()
-    print(result)
     for x, y in sorted(result):
-        a
         ans.append(x); ans.append(y)
     
     print(ans)
