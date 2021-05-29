@@ -17,7 +17,6 @@ def solution(paths):
     for x, y in sorted(result):
         ans.append(x); ans.append(y)
     
-    print(ans)
 
 
 
