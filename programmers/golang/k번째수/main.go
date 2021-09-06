@@ -1,7 +1,6 @@
 package main
 
 import (
-	"fmt"
 	"sort"
 )
 
@@ -16,9 +15,4 @@ func solution(array []int, commands [][]int) []int {
 		result = append(result, arr[command[2]-1])
 	}
 	return result
-}
-
-func main() {
-	result := solution([]int{1, 5, 2, 6, 3, 7, 4}, [][]int{{2, 5, 3}, {4, 4, 1}, {1, 7, 3}})
-	fmt.Println(result)
 }

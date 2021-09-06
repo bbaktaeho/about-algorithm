@@ -1,7 +1,6 @@
 package main
 
 import (
-	"fmt"
 	"sort"
 	"strings"
 )
@@ -45,7 +44,3 @@ func solution(table []string, languages []string, preference []int) string {
 	return answers[0]
 }
 
-func main() {
-	result := solution([]string{"SI JAVA JAVASCRIPT SQL PYTHON C#", "CONTENTS JAVASCRIPT JAVA PYTHON SQL C++", "HARDWARE C C++ PYTHON JAVA JAVASCRIPT", "PORTAL JAVA JAVASCRIPT PYTHON KOTLIN PHP", "GAME C++ C# JAVASCRIPT C JAVA"}, []string{"PYTHON", "C++", "SQL"}, []int{7, 5, 5})
-	fmt.Println(result)
-}
