@@ -1,5 +1,7 @@
 package main
 
+// 나머지
+
 import (
 	"fmt"
 	"strconv"
